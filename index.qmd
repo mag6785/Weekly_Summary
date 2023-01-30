@@ -1,6 +1,6 @@
 ---
-title: "Weekly Summary Template"
-author: "Author Name"
+title: "Weekly Summary Week 3"
+author: "Miranda Goodman"
 title-block-banner: true
 title-block-style: default
 toc: true
@@ -10,7 +10,7 @@ format: html
 
 ---
 
-## Tuesday, Jan 17
+## Tuesday, Jan 24
 
 ::: {.callout-important}
 ## TIL
@@ -19,9 +19,9 @@ Include a _very brief_ summary of what you learnt in this class here.
 
 Today, I learnt the following concepts in class:
 
-1. Item 1
-1. Item 2
-1. Item 3
+1. What dplyr does
+1. Hard Coding a data frame into R
+1. What does it mean to clean a data set
 :::
 
 Provide more concrete details here. You can also use footenotes[^footnote] if you like
@@ -31,7 +31,34 @@ Provide more concrete details here. You can also use footenotes[^footnote] if yo
 library(dplyr)
 library(purrr)
 ```
+1. In class we learned about what dplyr does:
+Objective is to provide a set of _"verbs"_ for manipulating data
+pivot_longer, mutate, summary, filter, pivot_wider, reshape, gather, left_join, right_join, inner_join, outer_join
 
+1. In class we learned how to hard code a data frame into R
+```{R}
+data_hard_code <- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(21, 25, 35),
+  Height = c(5.5, 6.2, 5.9)
+)
+data_hard_code
+```
+To read a csv file from memory we would do this:
+
+```R
+file_location <- "./data/data.csv"
+data_from_csv <- read.csv()
+```
+
+1. In class we learned how to clean a data set.
+Cleaning data: what makes a data set clean?
+-missing data points are removed/NULL Data is Removed/NA Removed
+-Each row and column should correspond to the same value
+**Every variable should have its own column a variable is something which holds measurements
+**Every observation should have its own row
+**Every cell should have a unique value
+-Make sure all values for a particular variable are of the same 'data type' e.g., double or character or logical
 
 For example: 
 in class we learnt we learnt about the `map` function from the `purrr` package. 
@@ -44,7 +71,7 @@ map(1:9, function(i)rnorm(1000) %>% hist(., main=i, col=i))
 
 
 
-## Thursday, Jan 19
+## Thursday, Jan 26
 
 
 
@@ -55,12 +82,61 @@ Include a _very brief_ summary of what you learnt in this class here.
 
 Today, I learnt the following concepts in class:
 
-1. Item 1
-1. Item 2
-1. Item 3
+1. We went over the four data types.
+1. We went over gg plot and learned how to add trend lines.
+1. We learned about ggplot theme assist and ggplot2.
 :::
 
 Provide more concrete details here, e.g., 
+
+1. In class we went over the four data types.
+-string this is a character
+-Integers 1,2,3,4
+-Double 2.2
+-Booleans true/false
+
+var contains the country code for people in north america
+```{R}
+var <- c(
+  "USA",
+  "MEX"
+)
+var
+```
+In order to specifically tell R this is categorical data use:
+as.factor(var)
+
+1. In class we also reviewed ggplot and learned how to add trend lines
+
+```{R}
+plt  <- ggplot(iris)
+plt <- plt + geom_points(
+  aes(x=Petal.Length, y=Sepal.Length,
+      colour=Species)
+)+
+geom_smooth(
+  aes(x=Petal.Length, y=Sepal.Length),
+  method = lm
+)
+```
+
+1. In class we learned about ggThemeAssist:
+```{R}
+library(ggThemeAssist)
+library(ggplot2)
+```
+
+```{R}
+ggplot(mpg) +
+  geom_point(aes(x=displ, y=hwy)) +
+  theme(panel.grid.major = element_line(linetype = "dotted"),
+    plot.title = element_text(family = mono),
+    plot.background = element_rect(fill = "white",
+      linetype = "dashed")) +
+  labs(title = "Plot Title",
+       x = "x axis title", y = "y axis title")
+
+```
 
 In class we learnt how to use the `map` function to create multiple regression diagnostic plots
 
