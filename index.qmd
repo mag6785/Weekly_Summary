@@ -108,7 +108,7 @@ as.factor(var)
 
 1. In class we also reviewed ggplot and learned how to add trend lines
 
-```{R}
+```
 plt  <- ggplot(iris)
 plt <- plt + geom_points(
   aes(x=Petal.Length, y=Sepal.Length,
@@ -122,11 +122,11 @@ geom_smooth(
 
 1. In class we learned about ggThemeAssist:
 ```{R}
-library(ggThemeAssist)
+# library(ggThemeAssist)
 library(ggplot2)
 ```
 
-```{R}
+```
 ggplot(mpg) +
   geom_point(aes(x=displ, y=hwy)) +
   theme(panel.grid.major = element_line(linetype = "dotted"),
