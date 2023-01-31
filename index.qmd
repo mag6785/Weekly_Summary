@@ -4,8 +4,8 @@ author: "Miranda Goodman"
 title-block-banner: true
 title-block-style: default
 toc: true
-format: html
-# format: pdf
+#format: html
+format: pdf
 ---
 
 ---
